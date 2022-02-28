@@ -1,0 +1,13 @@
+---
+- hosts: ansible-target-1
+  remote_user: ec2-user
+  tasks:
+  - name: create multiple directiry
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+    - '/home/ec2-user/direc1'
+    - '/home/ec2-user/direc2' 
+    - '/home/ec2-user/direc3'
+    register: echo  

@@ -1,0 +1,8 @@
+---
+- hosts: ansible-target-1
+  remote_user: ec2-user
+  tasks:
+  - name: to show all hosts in inventory
+    debug:
+     msg: "{{ item }}"
+    loop: "{{ groups['ansible-target-1'] }}"    

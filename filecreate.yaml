@@ -1,0 +1,11 @@
+--- 
+- 
+  hosts: ansible-target-2 
+  remote_user: ec2-user
+  tasks: 
+    - 
+      file: 
+        path: /home/ec2-user/testfile
+        state: touch
+      name: "create a file on node"
+

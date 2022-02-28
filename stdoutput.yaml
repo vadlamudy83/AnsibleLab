@@ -1,0 +1,11 @@
+---
+- hosts: 18.218.62.229
+  remote_user: ec2-user
+  tasks:
+  - name: list directory
+    command: ls /home/ec2-user
+    register: output
+  - name: output check
+    debug:
+      msg: "directory contains dir1 "
+    when: output.stdout.find('dir1') != -1 

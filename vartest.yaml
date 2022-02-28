@@ -1,0 +1,10 @@
+---
+- hosts: ansible-target-1
+  remote_user: ec2-user
+  vars:
+    myname: venkat
+  tasks: 
+  - name: print my name 
+    debug: 
+     msg: "{{myname}}"
+

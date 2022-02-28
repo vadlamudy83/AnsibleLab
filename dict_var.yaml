@@ -1,0 +1,23 @@
+---
+- hosts: ansible-target-1
+  remote_user: ec2-user
+  vars:
+   training:
+     Trainer: Satish
+     course: Ansible
+     Lab: AWS
+  tasks:
+    - name: print entire variables
+      debug:
+        msg: "{{ training }}"
+    - name: print first variable 
+      debug:
+        msg: "{{ training['Trainer'] }}"
+    - name: print first variable using key 
+      debug:
+        msg: "{{training.Trainer}}"
+    - name: print variable with dictionary 
+      debug:
+        msg: "key is {{ item.key }} and value is {{ item.value }}"
+      with_dict: "{{training}}"    
+

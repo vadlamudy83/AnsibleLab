@@ -1,0 +1,9 @@
+---
+- hosts: ansible-target-2
+  remote_user: ec2-user
+  tasks:
+  - name: to retrieve hosts inventory
+    debug:
+      msg: "{{ item }}"
+    register: output
+    loop: "{{ ansible_play_batch }}"    

@@ -1,0 +1,16 @@
+--- 
+- 
+  hosts: "18.218.62.229"
+  remote_user: ec2-user
+  tasks: 
+    - 
+      file: 
+        path: /home/ec2-user/hostname.conf
+        state: touch
+      name: "create a empty file on dest"
+    - 
+      lineinfile: 
+        dest: /home/ec2-user/hostname.conf
+        line: "hostname={{ ansible_hostname }}"
+        state: present
+      name: "add line to the file"
